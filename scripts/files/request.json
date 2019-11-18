@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "uan": "1212-0004-1002-9473",
+  "serviceLevel": "standard",
+  "partnerServices": [
+    "SSC_STANDARD_SINGLE"
+  ],
+  "countryOfApplication": "GBR",
+  "dateOfApplication": "2019-06-19",
+  "email": "testjrni@jrni.com",
+  "emailVerified": false,
+  "documentsWorkstream": "UKVI-Settlement-Domestic Violence",
+  "applicants": [
+    {
+      "applicantId": "1212-0004-0002-6883/00",
+      "title": "Mr",
+      "givenName": "OneTest",
+      "lastName": "test here",
+      "phone": "345345345",
+      "gender": "X",
+      "dob": "1990-01-01",
+      "nationality": [
+        "CPV",
+        "CAN"
+      ],
+      "address": {
+        "line1": "a1",
+        "line2": "b1",
+        "line3": "c1",
+        "townCity": "t1",
+        "postalCode": "W5 2AD",
+        "country": "GBR"
+      },
+      "identityDocuments": [
+        {
+          "documentType": "passport",
+          "id": "PP345234534",
+          "expiry": "2020-05-02"
+        }
+      ],
+      "visaSubtype": "set-dv",
+      "biometricsFingerprintsRequired": true,
+      "biometricsPhotoRequired": true,
+      "biometricsIdentityDocRequired": true,
+      "biometricsSignatureRequired": true,
+      "documentsRequired": true,
+      "documents": [
+        {
+          "id": "correspondenceAddressedToYouJointly",
+          "description": "Correspondence addressed either to you jointly, or in both of your names, or addressed individually to you at the same address, to cover the time when you were granted leave to enter or remain in the UK as a partner until the time when your relationship ended",
+          "mandatory": false
+        },
+        {
+          "id": "standardPassportEvidence",
+          "description": "The passport issued by Cape Verde for Mr SIT-BB OneTest",
+          "mandatory": true
+        },
+        {
+          "id": "allPreviousPassportsAndDocumentsEvidence",
+          "description": "All previous passports, travel documents or national identity cards that you have used to travel to or remain in the UK",
+          "mandatory": false
+        },
+        {
+          "id": "anyOtherDocumentsWhichSupportYouEvidence",
+          "description": " Any other documents which support your application",
+          "mandatory": false
+        }
+      ]
+    },{
+      "applicantId": "1212-0000-0000-1047/01",
+      "title": "Miss",
+      "givenName": "Jane",
+      "lastName": "Smithers",
+      "phone": "00441293123456",
+      "dob": "2009-01-01",
+      "nationality": [],
+      "address": {
+        "line1": "49 Springfield Court",
+        "townCity": "London",
+        "postalCode": "EC21AR",
+        "country": "RUS"
+      },
+      "identityDocuments": [
+        {
+          "documentType": "travelDocument",
+          "id": "123456789",
+          "expiry": "2019-01-01"
+        }
+      ],
+      "visaSubtype": "pbs-dependent-child",
+      "responsibleAdult": {
+        "title": "Mr",
+        "fullName": "Andrew Smithers",
+        "responsibleAdultType": "parent"
+      },
+      "biometricsFingerprintsRequired": true,
+      "biometricsPhotoRequired": true,
+      "biometricsIdentityDocRequired": true,
+      "biometricsSignatureRequired": false,
+      "documentsRequired": true,
+      "documents": [
+        {
+          "id": "standardPassportEvidence",
+          "description": "A photocopy of Miss Jane Smithers's passport",
+          "mandatory": true
+        },
+        {
+          "id": "childBirthCertificateEvidence",
+          "description": "Miss Jane Smithers' birth certificate (showing details of both parents)",
+          "mandatory": false
+        }
+      ]
+    }
+  ]
+}

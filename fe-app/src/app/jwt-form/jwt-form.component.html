@@ -1,0 +1,172 @@
+<section class="row">
+  <div class="col-md-6">
+    <form name="jwt_gen"
+          [formGroup]="jwtForm"
+          (ngSubmit)="onSubmit($event)">
+
+      <!-- Start uan section  -->
+      <div class="form-group">
+        <label for="uan">UAN </label>
+        <input type="text"
+               class="form-control"
+               aria-describedby="uan"
+               formControlName="uan"
+               placeholder="Enter uan in below format"
+               [ngClass]="{ 'is-invalid': submitted && f.uan.errors }">
+        <small class="form-text text-muted">UAN example: 1234-5678-9000-0000</small>
+        <div class="alert alert-danger"
+             role="alert"
+             *ngIf="submitted && f.uan.errors?.required">
+          This field is required!
+        </div>
+        <div class="alert alert-danger"
+             role="alert"
+             *ngIf="submitted && f.uan.errors?.pattern">
+          Pattern doesn't match!
+        </div>
+      </div>
+      <!-- End uan section  -->
+
+      <!-- Start key section  -->
+      <div class="form-group">
+        <label for="cipher_key">Key</label>
+        <input type="text"
+               class="form-control"
+               aria-describedby="cipher_key"
+               formControlName="cipher_key"
+               placeholder="Enter the key"
+               (ngModelChange)="fieldChanged('cipher_key')"
+               [ngClass]="{ 'is-invalid': submitted && f.cipher_key.errors }">
+        <small class="form-text text-muted">e.g.: b3d161a9.... </small>
+        <div class="alert alert-danger"
+             role="alert"
+             *ngIf="submitted && f.cipher_key.errors">
+          This field is required!
+        </div>
+      </div>
+      <!-- End key section  -->
+
+      <!-- Start Environment section  -->
+      <div class="input-group form-group">
+        <!-- <div class="input-group-prepend"> -->
+          <label class="input-group-text"
+                 for="inputGroupSelect01">Environment </label>
+        <select class="custom-select form-control"
+                id="inputGroupSelect01"
+                formControlName="env"
+                [ngClass]="{ 'is-invalid': submitted && f.env.errors }">
+          <option *ngFor="let env of environments"
+                  value="{{env.name}}">{{ env.name }}</option>
+        </select>
+        <div class="alert alert-danger"
+             role="alert"
+             *ngIf="submitted && f.env.errors">
+          This field is required!
+        </div>
+
+      </div>
+
+      <!-- End Environment section  -->
+
+      <!-- Start service section  -->
+      <div class="form-group">
+        <label for="serviceRef">Service</label>
+        <input type="text"
+               class="form-control"
+               formControlName="service"
+               placeholder="ServiceRef"
+               (ngModelChange)="fieldChanged('service')">
+        <div class="alert alert-danger"
+             role="alert"
+             *ngIf="submitted && f.service.errors">
+          This field is required!
+        </div>
+      </div>
+      <!-- End service section  -->
+
+      <!-- Start Language section  -->
+      <div class="form-group"
+           *ngIf="isTranslator">
+        <label for="language">Language</label>
+        <input type="text"
+               class="form-control"
+               formControlName="language"
+               placeholder="language">
+        <div class="alert alert-danger"
+             role="alert"
+             *ngIf="submitted && f.language.errors">
+          This field is required!
+        </div>
+      </div>
+      <!-- End Language section  -->
+
+      <!-- Start Gender section  -->
+      <div class="form-group"
+           *ngIf="isTranslator">
+        <label for="gender">Gender</label>
+        <input type="text"
+               class="form-control"
+               id="gender"
+               formControlName="gender"
+               placeholder="Gender">
+        <div class="alert alert-danger"
+             role="alert"
+             *ngIf="submitted && f.gender.errors">
+          This field is required!
+        </div>
+      </div>
+      <!-- End Gender section  -->
+
+      <!-- Start date section  -->
+      <div class="form-group">
+        <label for="date">Date of application</label>
+
+        <div class="input-group">
+          <input class="form-control"
+                 placeholder="yyyy-mm-dd"
+                 formControlName="application_date"
+                 ngbDatepicker
+                 #d="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar"
+                    (click)="d.toggle()"
+                    type="button">
+              <fa-icon [icon]="faCalendarAlt"></fa-icon>
+            </button>
+          </div>
+        </div>
+        <!-- End date section  -->
+
+      </div>
+
+      <button type="submit"
+              class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  <div class="col-md-6">
+    Services
+    <ul class="list-group">
+      <li class="list-group-item active">Normal services</li>
+      <li class="list-group-item impl-tooltip"
+          *ngFor="let service of normalServices ; let i = index"
+          (click)="copyToService(i)"> <span #i>{{ service }}</span>
+        <span class="tooltiptext">Click to copy in service field</span>
+      </li>
+
+    </ul>
+
+    <ul class="list-group">
+      <li class="list-group-item active">Translator services</li>
+      <li class="list-group-item impl-tooltip"
+          *ngFor="let service of translatorServices ; let i = index"
+          (click)="copyToService(i)"><span #i>{{ service }}</span>
+        <span class="tooltiptext">Click to copy in service field</span>
+      </li>
+
+    </ul>
+
+  </div>
+</section>
+<section class="row">
+  More information about keys,environment and services can be found here:  <a href="https://bookingbug.atlassian.net/wiki/spaces/Ent/pages/1341718530/Home+Office+-+JWT" target="_blank" rel="noopener noreferrer">Home Office JWT</a>
+</section>
