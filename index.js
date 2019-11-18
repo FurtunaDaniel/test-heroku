@@ -13,11 +13,11 @@ require('dotenv').config();
 const path = require('path')
 var ipfilter = require('express-ipfilter').IpFilter;
 
-var IpDeniedError = require('express-ipfilter').IpDeniedError;
+// var IpDeniedError = require('express-ipfilter').IpDeniedError;
 
 // whitelist the following IPs
 var ips = process.env.whitelisted_ips.split(',');
-app.use(ipfilter(ips, {mode: 'allow'}));
+// app.use(ipfilter(ips, {mode: 'allow'}));
 app.use(cors);
 app.use(express.json())
 // if (process.env.env === 'development'){
